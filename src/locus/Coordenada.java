@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package locus;
 
 import java.text.SimpleDateFormat;
@@ -10,7 +6,7 @@ import java.util.Date;
 
 /**
  *
- * @author dragu
+ * @author Francisco Javier Morón Sánchez
  */
 public class Coordenada {
     

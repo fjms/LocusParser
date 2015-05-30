@@ -8,7 +8,12 @@
  */
 package locus;
 
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -42,8 +47,8 @@ public class Locus {
          $PMTKLOX,2*47
          $PMTK001,622,3*36
          */
-        List<Coordenada> coordenadas = parseFile("/home/dragu/NetBeansProjects/Locus/src/locus/dump.txt");
-        List<Coordenada> coordlimpias = new ArrayList<Coordenada>();
+        List<Coordenada> coordenadas = parseFile("dump.txt");
+        List<Coordenada> coordlimpias = new ArrayList<>();
         for (Coordenada c : coordenadas) {
             if (c.getFix() < 5) {
                 coordlimpias.add(c);
