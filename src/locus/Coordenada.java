@@ -72,7 +72,7 @@ public class Coordenada {
                 "\nfix: " + fix + 
                 "\nlatitud: " + latitud + 
                 "\nlongitud: " + longitud + 
-                "\naltura: " + altura;
+                "\naltura: " + altura+"\n";
     }
     
     

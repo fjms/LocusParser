@@ -21,15 +21,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author dragu
- */
+
 public class Locus {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
 
         //
@@ -58,15 +53,6 @@ public class Locus {
             System.out.println(c.toString());
         }
 
-    }
-
-    public static int[] bytearray2intarray(byte[] barray) {
-        int[] iarray = new int[barray.length];
-        int i = 0;
-        for (byte b : barray) {
-            iarray[i++] = b & 0xff;
-        }
-        return iarray;
     }
 
     private static List<Coordenada> parseFile(String filename) {
@@ -125,9 +111,8 @@ public class Locus {
                 int chunksize = 32; //Basic logging
                 while (dataFields.length() >= chunksize) {
                     String sub = dataFields.substring(0, chunksize);
-                    byte[] bytes = hexStringToByteArray(sub);
-                    int[] bytedecimal = bytearray2intarray(bytes);
-                    Coordenada record = parseBasicRecord(bytedecimal);
+                    int[] bytes = hexStringToIntArray(sub);
+                    Coordenada record = parseBasicRecord(bytes);
                     records.add(record);
                     dataFields = dataFields.substring(chunksize);
                 }
@@ -138,12 +123,11 @@ public class Locus {
         return records;
     }
 
-    //Cambia de un string de bytes a un byte array
-    public static byte[] hexStringToByteArray(String s) {
+    public static int[] hexStringToIntArray(String s) {
         int len = s.length();
-        byte[] data = new byte[len / 2];
+        int[] data = new int[len / 2];
         for (int i = 0; i < len; i += 2) {
-            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4) + Character.digit(s.charAt(i + 1), 16));
+            data[i / 2] = (int) ((Character.digit(s.charAt(i), 16) << 4) + Character.digit(s.charAt(i + 1), 16));
         }
         return data;
     }
