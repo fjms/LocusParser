@@ -155,7 +155,7 @@ public class Locus {
 
         long timestamp = parseLong(Arrays.copyOfRange(bytes, 0, 4));
         Calendar c = Calendar.getInstance();
-        c.setTimeInMillis(timestamp);
+        c.setTimeInMillis(timestamp*1000);
         int fix = bytes[4]; // TODO bit flag     unsigned char u1VALID = 0x00;  // 0:NoFix , 1: Fix, 2: DGPS, 6: Estimated
         double latitud = parseDouble(Arrays.copyOfRange(bytes, 5, 9));
         double longitud = parseDouble(Arrays.copyOfRange(bytes, 9, 13));
